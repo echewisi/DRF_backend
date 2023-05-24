@@ -25,12 +25,12 @@ class Post(models.Model):
     slug= models.SlugField(max_length= 250, unique_for_date= 'published') 
     published= models.DateTimeField(default= timezone.now)
     author= models.ForeignKey(User, on_delete=models.CASCADE, related_name= 'blog_posts')
-    status= models.CharField(max_length= 10, choices= options, defualt= 'published')
+    status= models.CharField(max_length= 10, choices= options, default= 'published')
     objects= models.Manager()
     postobjects= PostObjects()# custom manager provided
     
     class Meta:
-        ordering= ('-published')
+        ordering= ['-published']
     
     def __str__(self):
         return self.title
