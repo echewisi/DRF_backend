@@ -19,7 +19,7 @@ class Post(models.Model):
     options=(('draft', 'Draft'), 
             ('published','Published'))
 
-    category= models.ForeignKey(Category, on_delete= models.PROTECT, default=1)
+    category= models.ForeignKey(Category, on_delete= models.PROTECT, default=1) #the default here means that the value in every field generated will have a default value of '1'
     title= models.CharField(max_length=250)
     excerpt= models.TextField(null= True)
     content= models.TextField(null= True)
